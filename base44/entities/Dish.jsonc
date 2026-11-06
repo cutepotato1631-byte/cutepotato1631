@@ -1,0 +1,90 @@
+{
+  "name": "Dish",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Dish name as shown on the menu"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short, appetising description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Mains",
+        "Curries",
+        "Grills",
+        "Sides",
+        "Sweets",
+        "Drinks"
+      ],
+      "enumColors": [
+        "blue",
+        "red",
+        "yellow",
+        "green",
+        "pink",
+        "purple"
+      ],
+      "default": "Mains"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in PKR"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "serves": {
+      "type": "string",
+      "description": "e.g. Serves 2"
+    },
+    "prep_time": {
+      "type": "number",
+      "description": "Preparation time in minutes"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "sort_order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "price",
+    "category"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

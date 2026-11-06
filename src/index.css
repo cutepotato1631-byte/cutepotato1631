@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 40% 97%;
+    --foreground: 20 22% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 22% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 22% 12%;
+    --primary: 9 76% 46%;
+    --primary-foreground: 40 80% 98%;
+    --secondary: 34 44% 92%;
+    --secondary-foreground: 20 22% 16%;
+    --muted: 34 32% 93%;
+    --muted-foreground: 25 14% 36%;
+    --accent: 34 42% 89%;
+    --accent-foreground: 20 22% 16%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 32 26% 86%;
+    --input: 32 22% 81%;
+    --ring: 9 76% 46%;
+    --chili: 9 76% 46%;
+    --saffron: 36 92% 52%;
+    --leaf: 158 44% 31%;
+    --plum: 328 48% 40%;
+    --chart-1: 9 76% 46%;
+    --chart-2: 158 44% 31%;
+    --chart-3: 36 92% 52%;
+    --chart-4: 328 48% 40%;
+    --chart-5: 20 22% 22%;
+    --radius: 1rem;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 36 40% 97%;
+    --sidebar-foreground: 20 22% 16%;
+    --sidebar-primary: 15 72% 45%;
+    --sidebar-primary-foreground: 40 60% 98%;
+    --sidebar-accent: 34 34% 91%;
+    --sidebar-accent-foreground: 20 22% 16%;
+    --sidebar-border: 32 22% 87%;
+    --sidebar-ring: 15 72% 45%;
+  }
+
+  .dark {
+    --background: 20 18% 8%;
+    --foreground: 36 35% 95%;
+    --card: 20 16% 11%;
+    --card-foreground: 36 35% 95%;
+    --popover: 20 16% 11%;
+    --popover-foreground: 36 35% 95%;
+    --primary: 14 84% 58%;
+    --primary-foreground: 20 30% 8%;
+    --chili: 12 82% 55%;
+    --saffron: 38 92% 60%;
+    --leaf: 158 42% 46%;
+    --plum: 328 54% 62%;
+    --secondary: 20 12% 17%;
+    --secondary-foreground: 36 35% 95%;
+    --muted: 20 12% 17%;
+    --muted-foreground: 34 12% 68%;
+    --accent: 20 12% 19%;
+    --accent-foreground: 36 35% 95%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 12% 20%;
+    --input: 20 12% 22%;
+    --ring: 15 78% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-primary/20;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+  .animate-rise {
+    animation: rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-rise { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+}
